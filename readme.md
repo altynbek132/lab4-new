@@ -1,7 +1,6 @@
 ## setup
 
         sudo chmod -R 777 /dev/ttyUSB0
-        source /opt/ros/melodic/setup.bash 
 
 
 ## launch
