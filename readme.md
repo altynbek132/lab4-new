@@ -1,6 +1,13 @@
 ## setup
 
         sudo chmod -R 777 /dev/ttyUSB0
+        
+
+        code /home/ubuntu/.bashrc
+        
+        alias asdf='source /opt/ros/melodic/setup.bash; source ~/catkin_ws/devel/setup.bash'
+        alias mm='asdf; cd ~/catkin_ws; catkin_make'
+
 
 
 ## launch
