@@ -1,22 +1,18 @@
 <launch>
- <!-- Load joint controller configurations from YAML file to parameter server -->
-  <rosparam file="$(find robot_control)/config/moveit_robot_control.yaml" command="load"  />
-
-  <!-- load the controllers -->
-  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/robot"
-	output="screen" args="joint_state_controller group1_controller group2_controller  
-					  "/>
-
-  <!-- convert joint states to TF transforms for rviz, etc -->
- <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" 
-
-	respawn="false" output="screen"> 
-
-  <remap from="/joint_states" to="/robot/joint_states"/> 
-
-
-  </node> 
-
-
- 
+	<rosparam command="load" file="$(find config-gen)/config/joint_names.yaml" />
+	<include file="$(find config-gen)/launch/planning_context.launch">
+		<arg name="load_robot_description" value="true" />
+	</include>
+	<include file="$(find config-gen)/launch/move_group.launch">
+		<arg name="publish_monitored_planning_scene" value="true" />
+	</include>
+	<node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+		<param name="/use_gui" value="false" />
+		<rosparam param="/source_list">
+			[robot/joint_states]
+		</rosparam>
+	</node>
+	<include file="$(find config-gen)/launch/moveit_rviz.launch">
+		<arg name="rviz_config" value="$(find config-gen)/launch/moveit.rviz" />
+	</include>
 </launch>

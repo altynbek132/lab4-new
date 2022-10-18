@@ -7,6 +7,5 @@ controller_list:
       - joint4
       - joint6
       - end
-initial:  # Define initial robot poses.
-  - group: snake_arm
-    pose: pose_1
+initial: # Define initial robot poses.
+  []
