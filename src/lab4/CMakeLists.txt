@@ -14,6 +14,9 @@ generate_messages(DEPENDENCIES std_msgs)
 catkin_package(
 )
 
+find_package(Eigen3 REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
+
 include_directories(
   ${catkin_INCLUDE_DIRS}
 )
