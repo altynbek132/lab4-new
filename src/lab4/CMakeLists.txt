@@ -5,6 +5,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
+  moveit_ros_planning_interface
+  moveit_ros_move_group
+  Eigen3
 )
 
 ## Generate added messages and services
@@ -13,9 +16,6 @@ generate_messages(DEPENDENCIES std_msgs)
 
 catkin_package(
 )
-
-find_package(Eigen3 REQUIRED)
-find_package(moveit_ros_planning_interface REQUIRED)
 
 include_directories(
   ${catkin_INCLUDE_DIRS}
