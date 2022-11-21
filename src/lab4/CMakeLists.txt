@@ -5,9 +5,9 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  moveit_ros_planning_interface
+  message_generation
   moveit_ros_move_group
-  Eigen3
+  moveit_ros_planning_interface
 )
 
 ## Generate added messages and services
@@ -21,6 +21,5 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(test src/test.cpp)
-target_link_libraries(test ${catkin_LIBRARIES})
-add_dependencies(test lab4)
+add_executable(test1 src/test.cpp)
+target_link_libraries(test1 ${catkin_LIBRARIES})
