@@ -4,13 +4,10 @@
 
         code /home/ubuntu/.bashrc
 
-### put into .bashrc
+### run
 
-        alias asdf='source ./devel/setup.bash'
-        alias mm='asdf; cd ~/catkin_ws; catkin_make'
+        echo -e "alias asdf='source ./devel/setup.bash'\nalias mm='asdf; cd ~/catkin_ws; catkin_make'\nsource /opt/ros/melodic/setup.bash\nsource ./devel/setup.bash\n" >> ~/.bashrc
 
-        source /opt/ros/melodic/setup.bash
-        source ./devel/setup.bash
 
 
 ## launch
